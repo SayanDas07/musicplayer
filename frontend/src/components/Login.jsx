@@ -30,7 +30,7 @@ const Login = () => {
   const exchangeCodeForToken = async (code) => {
     setLoading(true);
     try {
-      const response = await axios.post('http://localhost:8000/spotify/callback', { code }, {
+      const response = await axios.post('https://musicplayer-5ecj.onrender.com/spotify/callback', { code }, {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -53,7 +53,7 @@ const Login = () => {
   };
 
   const handleLogin = async () => {
-    const response = await axios.get('http://localhost:8000/spotify/login');
+    const response = await axios.get('https://musicplayer-5ecj.onrender.com/spotify/login');
     if (response.data && response.data.data.authUrl) {
       window.location.href = response.data.data.authUrl;
     }
