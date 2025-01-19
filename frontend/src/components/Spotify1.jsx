@@ -171,11 +171,8 @@ const SpotifyPlayer = () => {
     const executeVoiceCommand = async (command) => {
         console.log('Voice command received:', command);
 
-        // Check if we have either player SDK or device ID
-        if (!player && !deviceId) {
-            console.error('No player or device ID available');
-            return;
-        }
+       
+
 
         // First ensure device is active before executing commands
         if (!activeDevice) {
@@ -202,16 +199,14 @@ const SpotifyPlayer = () => {
                 }
             }
             else if (command.includes('pause') || command.includes('stop')) {
-                
-                
-                
-                    console.log('Pausing playback2');
-                    await fetch("https://api.spotify.com/v1/me/player/pause", {
-                        method: "PUT",
-                        headers: { Authorization: `Bearer ${token}` },
-                    });
-                    setIsPlaying(false);
-                
+
+
+                await fetch("https://api.spotify.com/v1/me/player/pause", {
+                    method: "PUT",
+                    headers: { Authorization: `Bearer ${token}` },
+                });
+                setIsPlaying(false);
+
             }
             else if (command.includes('next') || command.includes('skip')) {
                 if (player?.nextTrack) {
@@ -247,7 +242,7 @@ const SpotifyPlayer = () => {
         }
     };
 
-    
+
     // Toggle voice recognition
     const toggleVoiceRecognition = () => {
         if (!recognition) return;

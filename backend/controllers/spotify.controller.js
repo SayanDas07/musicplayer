@@ -40,7 +40,7 @@ export const handleLogin = async (req, res) => {
                 state: Math.random().toString(36).substring(7),
             });
 
-        console.log("authUrl", authUrl);
+     
         res.json({ data: { authUrl } });
     } catch (error) {
         console.error("Error redirecting to Spotify", error.response?.data || error.message);
