@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 5000;
 
 app.use(cors(
     {
-        origin: 'https://musicplayer-gamma-rosy.vercel.app/',
+        origin: 'https://musicplayersd.onrender.com',
         credentials: true
     }
 ));
